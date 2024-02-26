@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class mouvement_Joueur : MonoBehaviour
 {
-    float horizontal;
-    float vertical;
+    float horizontale;
+    float verticale;
     float moveLimiter = 0.5f;
 
-    public float movementSpeed = 20.0f;
+    public float movementSpeed = 10.0f;
 
     Rigidbody2D body;
 
@@ -17,23 +17,25 @@ public class mouvement_Joueur : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
+
     void Update()
     {
-        // Récupérer les valeurs des inputs
-        horizontal = Input.GetAxisRaw("Horizontal"); // -1 est left, 1 est right
-        vertical = Input.GetAxisRaw("Vertical"); // -1 est down, 1 est up
+        // Récupérer les valeurs des inputs (l'axe des abcisses et l'axe des ordonnées)
+        horizontale = Input.GetAxisRaw("Horizontal"); 
+        verticale = Input.GetAxisRaw("Vertical"); 
     }
+
 
     void FixedUpdate()
     {
-        if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+        if (horizontale != 0 && verticale != 0) 
         {
             // limite la vitesse de mouvement diagonale
-            horizontal *= moveLimiter;
-            vertical *= moveLimiter;
+            horizontale *= moveLimiter;
+            verticale *= moveLimiter;
         }
 
-        body.velocity = new Vector2(horizontal * movementSpeed, vertical * movementSpeed);
+        body.velocity = new Vector2(horizontale * movementSpeed, verticale * movementSpeed);
     }
 }
 

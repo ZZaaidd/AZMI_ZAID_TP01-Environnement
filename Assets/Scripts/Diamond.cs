@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class Diamond : MonoBehaviour
 {
-    bool collectee = false;
+    bool collected = false;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collectee)
+        if (collected)
             return;
 
-        //Debug.Log("OnCollisionEnter2D");
 
-        // Disparition de la pièce
+        // faire disparaitre le diamond
         Destroy(gameObject);
 
-        collectee = true;
+        collected = true;
 
         // Aviser le GameManager
-        FindObjectOfType<GameManager>().PieceRecoltee();
+        FindObjectOfType<GameManager>().DiamondRecoltee();
     }
 
 }

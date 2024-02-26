@@ -7,7 +7,7 @@ using TMPro;
 
 public class MenuParamètres : MonoBehaviour
 {
-
+    // définir les éléments du menu Paramètres
     public Toggle toggle;
     public Slider slider;
     public TMP_Dropdown dropdown;
@@ -27,24 +27,32 @@ public class MenuParamètres : MonoBehaviour
 
     }
 
+
+    //afficher la valeur du Toggle dans la console.
     void toggle_checked(bool value)
     {
         Debug.Log($"Le toggle est maintenant {value}");
 
-
     }
 
+
+    //afficher la valeur du Slider dans la console.
     void slider_onValueChanged(float valeur)
     {
         Debug.Log($"Le slider est maintenant à: {valeur}");
     }
 
+
+
+    //afficher l'option choisie dans la console (0 pour A, 1 pour B, 2 pour C)
     void dropdown_onValueChanged(int valeur)
     {
         Debug.Log($"L'option est maintenant: {valeur}");
     }
 
 
+
+    //afficher le contenu écrit.
     void inputField_onValueChanged(string valeur)
     {
         Debug.Log($"Le nom est maintenant: {valeur}");
